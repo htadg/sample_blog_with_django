@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .models import Post
 from .forms import PostForm
@@ -13,8 +13,8 @@ def post_confirm_delete(request,pk):
 	return render(request, 'blog/post_confirm_delete.html', {'post':post})
 	
 def post_delete(request,pk):
-	Post.objects.filter(pk=pk).delete() 
-	return render(request, 'blog/post_delete.html')
+        Post.objects.filter(pk=pk).delete()
+        return render(request, 'blog/post_delete.html')
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
